@@ -1,0 +1,1233 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- AOS Stylesheet -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Martial Arts Academy - Master Your Mind & Body</title>
+    <meta name="description" content="Transform yourself through martial arts. Train with world-class instructors in MMA, Muay Thai, Brazilian Jiu-Jitsu, and Boxing.">
+    
+    
+ <!-- Fonts -->
+<link rel="stylesheet" href="style.css">
+     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.5.0/remixicon.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'display': ['Montserrat', 'sans-serif'],
+                        'body': ['Open Sans', 'sans-serif'],
+                        'logo': ['Pacifico', 'serif']
+                    },
+                    colors: {
+                        'red': {
+                            500: '#ef4444',
+                            600: '#dc2626',
+                            700: '#b91c1c',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .hero-bg {
+            background-image: url('https://readdy.ai/api/search-image?query=powerful%20martial%20arts%20fighters%20training%20in%20a%20modern%20gym%20with%20dramatic%20lighting%2C%20intense%20action%20shots%20of%20MMA%20fighters%2C%20boxing%20and%20muay%20thai%20training%2C%20dark%20atmospheric%20background%20with%20red%20accents%2C%20professional%20sports%20photography%2C%20high%20energy%20combat%20sports%20scene&width=1920&height=1080&seq=hero-bg&orientation=landscape');
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(4px);
+        }
+        
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background: #111827;
+            margin: 2rem;
+            padding: 2rem;
+            border-radius: 1rem;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+        
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+        
+        .carousel-container {
+            overflow: hidden;
+        }
+        
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        .carousel-slide {
+            min-width: 100%;
+            flex-shrink: 0;
+        }
+        
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+        
+        .lightbox.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            -o-object-fit: contain;
+               object-fit: contain;
+        }
+        
+        .navbar-transparent {
+            background: transparent;
+        }
+        
+        .navbar-solid {
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(8px);
+        }
+        
+        @media (max-width: 768px) {
+            .modal-content {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+        }
+    </style>
+
+
+          <script type="module" crossorigin src="/preview/0cefbb02-1927-4cba-9ce0-8b430606b26c/2550966/assets/index-CgoSeTeZ.js"></script>
+        </head>
+<body class="bg-black text-white font-body">
+
+    
+   <!-- Loading Spinner -->
+<div id="loading" class="fixed inset-0 bg-gradient-to-br from-black via-gray-900 to-black flex items-center justify-center z-50 transition-opacity duration-500">
+  <div class="text-center">
+    <!-- Premium Spinner -->
+    <div class="premium-spin rounded-full h-16 w-16 border-4 border-red-600 border-t-transparent mx-auto mb-6"></div>
+    <p class="text-white text-lg font-semibold tracking-wide">Loading Academy...</p>
+  </div>
+</div>
+
+<!-- Custom CSS -->
+<style>
+  @keyframes spin-premium {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  .premium-spin {
+    animation: spin-premium 0.8s linear infinite; /* still rotating smoothly */
+  }
+</style>
+
+<!-- Script -->
+<script>
+  window.addEventListener("load", () => {
+    // Sirf 0.001 sec ke liye loader dikhana
+    setTimeout(() => {
+      const loader = document.getElementById("loading");
+      loader.style.opacity = "0";
+      loader.style.transition = "opacity 0.2s ease"; 
+      setTimeout(() => loader.style.display = "none", 200);
+    }, 1); // bas 0.001 sec delay
+  });
+</script>
+
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 navbar-transparent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+               <div class="flex items-center">
+    <a href="index.html" class="block">
+        <img src="ing/logo.jpeg" alt="Logo" class="h-10 w-auto transition-transform duration-300 hover:scale-105" />
+    </a>
+</div>
+
+
+                <!-- Desktop Navigation -->
+               <!-- Desktop Navigation -->
+<div class="hidden md:block">
+  <div class="ml-10 flex items-baseline space-x-4">
+
+    <a href="index.html" class="nav-link text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors duration-300 hover:bg-red-600/20 rounded-md">Home</a>
+    <a href="about.html" class="nav-link text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors duration-300 hover:bg-red-600/20 rounded-md">About</a>
+
+    <!-- Dropdown Menu -->
+    <div class="relative group">
+      <button class="nav-link flex items-center text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors duration-300 hover:bg-red-600/20 rounded-md">
+        Courses
+        <svg class="w-4 h-4 ml-1 transition-transform duration-200 group-hover:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+
+      <!-- Dropdown Items -->
+      <div class="absolute left-0  w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200 z-50">
+        <a href="s1.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-red-100">Self Defense</a>
+        <a href="s2.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-red-100">Martial Arts Basics</a>
+        <a href="s3.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-red-100">Advanced MMA</a>
+        <a href="s4.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-red-100">Kids Training</a>
+      </div>
+    </div>
+
+   <a href="Schedule.html" class="nav-link text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors duration-300 hover:bg-red-600/20 rounded-md">Schedule</a>
+        <a href="Gallery.html" class="nav-link text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors duration-300 hover:bg-red-600/20 rounded-md">gallery</a>
+
+    <a href="Coaches.html" class="nav-link text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors duration-300 hover:bg-red-600/20 rounded-md">Coaches</a>
+    <a href="Membership.html" class="nav-link text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors duration-300 hover:bg-red-600/20 rounded-md">Membership</a>
+    <a href="Contact.html" class="nav-link text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors duration-300 hover:bg-red-600/20 rounded-md">Contact</a>
+
+  </div>
+</div>
+
+
+                <!-- CTA Button -->
+                <div class="hidden md:block">
+                    <a href="Contact.html" class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-md text-sm font-medium transition-all duration-300 transform hover:scale-105">
+                        Free Trial
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-toggle" class="text-gray-400 hover:text-white hover:bg-gray-700 p-2 rounded-md">
+                        <i class="ri-menu-line text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+
+
+     <div id="mobile-menu" class="md:hidden bg-black/95 backdrop-blur-sm hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="mobile-nav-link text-gray-300 hover:text-white block px-3 py-2 text-base font-medium hover:bg-red-600/20 rounded-md transition-colors duration-300">Home</a>
+                <a href="about.html" class="mobile-nav-link text-gray-300 hover:text-white block px-3 py-2 text-base font-medium hover:bg-red-600/20 rounded-md transition-colors duration-300">About</a>
+<!-- Schedule Dropdown in Mobile Menu -->
+<div class="border-t border-gray-700"></div>
+<button id="mobile-schedule-btn" class="w-full flex justify-between items-center text-gray-300 hover:text-white px-3 py-2 text-base font-medium hover:bg-red-600/20 rounded-md transition-colors duration-300">
+ Courses
+  <svg id="mobile-schedule-icon" class="w-5 h-5 ml-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+  </svg>
+</button>
+
+<!-- Dropdown Items -->
+<div id="mobile-schedule-dropdown" class="hidden pl-6 space-y-1">
+  <a href="s1.html" class="block text-gray-400 hover:text-white px-3 py-2 text-sm rounded-md hover:bg-red-600/20 transition">Self Defense</a>
+  <a href="s2.html" class="block text-gray-400 hover:text-white px-3 py-2 text-sm rounded-md hover:bg-red-600/20 transition">Martial Arts Basics</a>
+  <a href="s3.html" class="block text-gray-400 hover:text-white px-3 py-2 text-sm rounded-md hover:bg-red-600/20 transition">Advanced MMA</a>
+  <a href="s4.html" class="block text-gray-400 hover:text-white px-3 py-2 text-sm rounded-md hover:bg-red-600/20 transition">Kids Training</a>
+</div>
+
+<!-- JS for toggle -->
+<script>
+  const scheduleBtn = document.getElementById("mobile-schedule-btn");
+  const scheduleDropdown = document.getElementById("mobile-schedule-dropdown");
+  const scheduleIcon = document.getElementById("mobile-schedule-icon");
+
+  scheduleBtn.addEventListener("click", () => {
+    scheduleDropdown.classList.toggle("hidden");
+    scheduleIcon.classList.toggle("rotate-180");
+  });
+</script>
+              <a href="Schedule.html" class="mobile-nav-link text-gray-300 hover:text-white block px-3 py-2 text-base font-medium hover:bg-red-600/20 rounded-md transition-colors duration-300">Schedule</a>
+            <a href="Gallery.html" class="mobile-nav-link text-gray-300 hover:text-white block px-3 py-2 text-base font-medium hover:bg-red-600/20 rounded-md transition-colors duration-300">gallery</a>
+
+                <a href="Coaches.html" class="mobile-nav-link text-gray-300 hover:text-white block px-3 py-2 text-base font-medium hover:bg-red-600/20 rounded-md transition-colors duration-300">Coaches</a>
+                <a href="Membership.html" class="mobile-nav-link text-gray-300 hover:text-white block px-3 py-2 text-base font-medium hover:bg-red-600/20 rounded-md transition-colors duration-300">Membership</a>
+                <a href="Contact.html" class="bg-red-600 hover:bg-red-700 text-white block px-3 py-2 rounded-md text-base font-medium transition-all duration-300 mt-4">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+
+
+<!-- Hero Section - Contact Page -->
+<section class="relative h-[70vh] md:h-[80vh] flex items-center justify-center bg-black text-white">
+  <!-- Background Image -->
+  <div class="absolute inset-0">
+    <img src="https://plus.unsplash.com/premium_photo-1665203604603-e097954797e9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8Y29udGFjdCUyMHVzfGVufDB8fDB8fHww" 
+         alt="Contact Us" 
+         class="w-full h-full object-cover opacity-70">
+    <div class="absolute inset-0 bg-black opacity-50"></div> <!-- Dark overlay -->
+  </div>
+
+  <!-- Text Content -->
+  <div class="relative z-10 text-center px-4">
+    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+      <span class="text-white">Get in</span>
+      <span class="text-[#ef4444]">Touch</span>
+      <span class="text-white">With Us</span>
+    </h1>
+    <p class="mt-4 text-sm md:text-lg text-gray-200 max-w-2xl mx-auto">
+      Have questions? We’re here to help. Reach out to us anytime for training, classes, or events.
+    </p>
+  </div>
+</section>
+ <!-- hero section end -->
+
+
+ <!-- About / Trust Section -->
+<section class="py-16 bg-[#212121]">
+  <div class="container mx-auto px-6 lg:px-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    
+    <!-- Left Side - Image -->
+    <div class="relative">
+      <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGNvbnRhY3R8ZW58MHx8MHx8fDA%3D" 
+           alt="Future with SDMAINDIA" 
+           class="rounded-2xl shadow-lg w-full object-cover">
+      <div class="absolute inset-0 bg-black/30 rounded-2xl"></div>
+    </div>
+
+    <!-- Right Side - Content -->
+    <div>
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+        Why Your Future is Safe with <span class="text-red-500">SDMAINDIA</span>
+      </h2>
+      <p class="text-white mb-6">
+        At <span class="font-semibold">SDMAINDIA</span>, we don’t just teach martial arts — we build discipline, confidence, and a secure future for every student. 
+        Our training programs are designed to make you physically strong, mentally sharp, and socially responsible.
+      </p>
+
+      <ul class="space-y-4 text-white">
+        <li class="flex items-start">
+          <svg class="w-6 h-6 text-red-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M16.707 5.293a1 1 0 00-1.414 0L9 11.586 6.707 9.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l7-7a1 1 0 000-1.414z" />
+          </svg>
+          Certified trainers with years of experience in self-defense & martial arts.
+        </li>
+        <li class="flex items-start">
+          <svg class="w-6 h-6 text-red-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M16.707 5.293a1 1 0 00-1.414 0L9 11.586 6.707 9.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l7-7a1 1 0 000-1.414z" />
+          </svg>
+          Focus on discipline, confidence, and career growth opportunities.
+        </li>
+        <li class="flex items-start">
+          <svg class="w-6 h-6 text-red-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M16.707 5.293a1 1 0 00-1.414 0L9 11.586 6.707 9.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l7-7a1 1 0 000-1.414z" />
+          </svg>
+          National & International recognition ensuring future safety & growth.
+        </li>
+        <li class="flex items-start">
+          <svg class="w-6 h-6 text-red-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M16.707 5.293a1 1 0 00-1.414 0L9 11.586 6.707 9.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l7-7a1 1 0 000-1.414z" />
+          </svg>
+          A supportive community that guides you even beyond training.
+        </li>
+      </ul>
+
+      <div class="mt-8">
+        <a href="#contact-form" 
+           class="btn-primary ">
+          Join SDMAINDIA Today
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- about section end -->
+
+
+
+
+
+
+
+
+
+
+      <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 font-display">
+                    Start Your <span class="text-red-500">Journey</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Ready to transform your life through martial arts? Get in touch with us today 
+                    to book your free trial class or ask any questions you might have.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="bg-gray-900 rounded-2xl p-8 shadow-2xl fade-in">
+                    <h3 class="text-2xl font-bold text-white mb-6">Book Your Free Trial</h3>
+                    
+                    <form id="contact-form" data-readdy-form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-300 mb-2">
+                                    Full Name *
+                                </label>
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    required
+                                    class="w-full px-4 py-3 bg-black border border-gray-700 rounded-lg text-white text-sm focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-300"
+                                    placeholder="Enter your full name"
+                                />
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-300 mb-2">
+                                    Email Address *
+                                </label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    required
+                                    class="w-full px-4 py-3 bg-black border border-gray-700 rounded-lg text-white text-sm focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-300"
+                                    placeholder="Enter your email"
+                                />
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-300 mb-2">
+                                Phone Number
+                            </label>
+                            <input
+                                type="tel"
+                                id="phone"
+                                name="phone"
+                                class="w-full px-4 py-3 bg-black border border-gray-700 rounded-lg text-white text-sm focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-300"
+                                placeholder="Enter your phone number"
+                            />
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="program" class="block text-sm font-medium text-gray-300 mb-2">
+                                    Interested Program *
+                                </label>
+                                <div class="relative">
+                                    <select
+                                        id="program"
+                                        name="program"
+                                        required
+                                        class="w-full px-4 py-3 pr-8 bg-black border border-gray-700 rounded-lg text-white text-sm focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-300 appearance-none"
+                                    >
+                                        <option value="">Select a program</option>
+                                        <option value="Mixed Martial Arts (MMA)">Mixed Martial Arts (MMA)</option>
+                                        <option value="Muay Thai">Muay Thai</option>
+                                        <option value="Brazilian Jiu-Jitsu">Brazilian Jiu-Jitsu</option>
+                                        <option value="Boxing">Boxing</option>
+                                        <option value="Kids Program">Kids Program</option>
+                                        <option value="Combat Fitness">Combat Fitness</option>
+                                        <option value="Personal Training">Personal Training</option>
+                                    </select>
+                                    <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                                        <i class="ri-arrow-down-s-line text-gray-400"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="experience" class="block text-sm font-medium text-gray-300 mb-2">
+                                    Experience Level
+                                </label>
+                                <div class="relative">
+                                    <select
+                                        id="experience"
+                                        name="experience"
+                                        class="w-full px-4 py-3 pr-8 bg-black border border-gray-700 rounded-lg text-white text-sm focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-300 appearance-none"
+                                    >
+                                        <option value="">Select experience level</option>
+                                        <option value="Complete Beginner">Complete Beginner</option>
+                                        <option value="Some Experience (0-1 years)">Some Experience (0-1 years)</option>
+                                        <option value="Intermediate (1-3 years)">Intermediate (1-3 years)</option>
+                                        <option value="Advanced (3+ years)">Advanced (3+ years)</option>
+                                        <option value="Professional/Competitor">Professional/Competitor</option>
+                                    </select>
+                                    <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                                        <i class="ri-arrow-down-s-line text-gray-400"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-300 mb-2">
+                                Message or Questions
+                            </label>
+                            <textarea
+                                id="message"
+                                name="message"
+                                rows="4"
+                                maxlength="500"
+                                class="w-full px-4 py-3 bg-black border border-gray-700 rounded-lg text-white text-sm focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-300 resize-none"
+                                placeholder="Tell us about your goals or ask any questions..."
+                            ></textarea>
+                            <div class="text-right text-xs text-gray-400 mt-1">
+                                <span id="char-count">0</span>/500 characters
+                            </div>
+                        </div>
+
+                        <button
+                            type="submit"
+                            class="w-full bg-red-600 hover:bg-red-700 disabled:bg-red-800 text-white py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 disabled:scale-100 disabled:cursor-not-allowed"
+                        >
+                            <i class="ri-send-plane-line mr-2"></i>
+                            Book Free Trial
+                        </button>
+
+                        <!-- Status Messages -->
+                        <div id="form-success" class="bg-green-600/20 border border-green-600/30 text-green-300 p-4 rounded-lg hidden">
+                            <i class="ri-check-circle-line mr-2"></i>
+                            Thank you! We'll contact you within 24 hours to schedule your free trial.
+                        </div>
+
+                        <div id="form-error" class="bg-red-600/20 border border-red-600/30 text-red-300 p-4 rounded-lg hidden">
+                            <i class="ri-error-warning-line mr-2"></i>
+                            There was an error submitting your form. Please try again or call us directly.
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Contact Info & Map -->
+                <div class="space-y-8 fade-in">
+                    <!-- Contact Cards -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="bg-gray-900 rounded-lg p-6 text-center hover:bg-gray-800 transition-colors duration-300">
+                            <div class="w-12 h-12 flex items-center justify-center bg-red-600/20 rounded-full mx-auto mb-4">
+                                <i class="ri-phone-line text-red-500 text-xl"></i>
+                            </div>
+                            <h4 class="text-white font-semibold mb-2">Phone</h4>
+                            <p class="text-red-400 font-medium mb-1">(555) 123-4567</p>
+                            <p class="text-gray-400 text-sm">Call us for immediate assistance</p>
+                        </div>
+
+                        <div class="bg-gray-900 rounded-lg p-6 text-center hover:bg-gray-800 transition-colors duration-300">
+                            <div class="w-12 h-12 flex items-center justify-center bg-red-600/20 rounded-full mx-auto mb-4">
+                                <i class="ri-mail-line text-red-500 text-xl"></i>
+                            </div>
+                            <h4 class="text-white font-semibold mb-2">Email</h4>
+                            <p class="text-red-400 font-medium mb-1">info@martialacademy.com</p>
+                            <p class="text-gray-400 text-sm">Send us a message anytime</p>
+                        </div>
+
+                        <div class="bg-gray-900 rounded-lg p-6 text-center hover:bg-gray-800 transition-colors duration-300">
+                            <div class="w-12 h-12 flex items-center justify-center bg-red-600/20 rounded-full mx-auto mb-4">
+                                <i class="ri-map-pin-line text-red-500 text-xl"></i>
+                            </div>
+                            <h4 class="text-white font-semibold mb-2">Location</h4>
+                            <p class="text-red-400 font-medium mb-1">123 Fighter Street, Combat City, CA 90210</p>
+                            <p class="text-gray-400 text-sm">Come visit our facility</p>
+                        </div>
+
+                        <div class="bg-gray-900 rounded-lg p-6 text-center hover:bg-gray-800 transition-colors duration-300">
+                            <div class="w-12 h-12 flex items-center justify-center bg-red-600/20 rounded-full mx-auto mb-4">
+                                <i class="ri-time-line text-red-500 text-xl"></i>
+                            </div>
+                            <h4 class="text-white font-semibold mb-2">Hours</h4>
+                            <p class="text-red-400 font-medium mb-1">Mon-Fri: 6AM-10PM, Sat-Sun: 8AM-8PM</p>
+                            <p class="text-gray-400 text-sm">We're here when you need us</p>
+                        </div>
+                    </div>
+
+                    <!-- Map -->
+                    <div class="bg-gray-900 rounded-lg p-6">
+                        <h3 class="text-xl font-bold text-white mb-4">Find Our Academy</h3>
+                        <div class="aspect-video rounded-lg overflow-hidden">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.733248043701!2d-118.2436849846818!3d34.0522265806193!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c75ddc27da13%3A0xe22fdf6f254608f4!2sLos%20Angeles%2C%20CA!5e0!3m2!1sen!2sus!4v1623456789012!5m2!1sen!2sus"
+                                width="100%"
+                                height="100%"
+                                frameborder="0"
+                                allowfullscreen
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                                class="rounded-lg"
+                                title="Academy Location"
+                            ></iframe>
+                        </div>
+                        <div class="mt-4 text-center">
+                            <button class="text-red-500 hover:text-red-400 font-medium transition-colors">
+                                <i class="ri-navigation-line mr-2"></i>
+                                Get Directions
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Social Media -->
+                    <div class="bg-gray-900 rounded-lg p-6 text-center">
+                        <h3 class="text-xl font-bold text-white mb-4">Follow Our Journey</h3>
+                        <div class="flex justify-center space-x-4">
+                            <a href="#" class="w-12 h-12 flex items-center justify-center bg-red-600/20 rounded-full text-red-500 hover:bg-red-600 hover:text-white transition-all duration-300 transform hover:scale-110">
+                                <i class="ri-facebook-fill text-xl"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 flex items-center justify-center bg-red-600/20 rounded-full text-red-500 hover:bg-red-600 hover:text-white transition-all duration-300 transform hover:scale-110">
+                                <i class="ri-instagram-line text-xl"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 flex items-center justify-center bg-red-600/20 rounded-full text-red-500 hover:bg-red-600 hover:text-white transition-all duration-300 transform hover:scale-110">
+                                <i class="ri-youtube-line text-xl"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 flex items-center justify-center bg-red-600/20 rounded-full text-red-500 hover:bg-red-600 hover:text-white transition-all duration-300 transform hover:scale-110">
+                                <i class="ri-tiktok-line text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="mt-20 pt-8 border-t border-gray-800 fade-in">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="mb-4 md:mb-0">
+                        <p class="text-gray-400 text-sm">
+                            © 2024 Martial Arts Academy. All rights reserved.
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-red-500 text-sm transition-colors">
+                            Privacy Policy
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-red-500 text-sm transition-colors">
+                            Terms of Service
+                        </a>
+                        <a href="https://readdy.ai/?origin=logo" class="text-gray-400 hover:text-red-500 text-sm transition-colors">
+                            Made with Readdy
+                        </a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </section>
+
+    <!-- Modals -->
+    <!-- Program Modal -->
+    <div id="program-modal" class="modal">
+        <div class="modal-content">
+            <button class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl" onclick="closeModal('program-modal')">
+                <i class="ri-close-line"></i>
+            </button>
+            <div id="program-modal-content">
+                <!-- Dynamic content will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Coach Modal -->
+    <div id="coach-modal" class="modal">
+        <div class="modal-content">
+            <button class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl" onclick="closeModal('coach-modal')">
+                <i class="ri-close-line"></i>
+            </button>
+            <div id="coach-modal-content">
+                <!-- Dynamic content will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <button class="absolute top-4 right-4 text-white text-3xl z-10" onclick="closeLightbox()">
+            <i class="ri-close-line"></i>
+        </button>
+        <img id="lightbox-img" src="" alt="">
+    </div>
+
+    <script>
+        // Loading screen
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loading').style.display = 'none';
+            }, 1000);
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.remove('navbar-transparent');
+                navbar.classList.add('navbar-solid');
+            } else {
+                navbar.classList.remove('navbar-solid');
+                navbar.classList.add('navbar-transparent');
+            }
+        });
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const icon = this.querySelector('i');
+            
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('hidden');
+                icon.className = 'ri-close-line text-xl';
+            } else {
+                mobileMenu.classList.add('hidden');
+                icon.className = 'ri-menu-line text-xl';
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                    document.querySelector('#mobile-menu-toggle i').className = 'ri-menu-line text-xl';
+                }
+            });
+        });
+
+        // Fade in animation on scroll
+        function fadeInOnScroll() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', fadeInOnScroll);
+        fadeInOnScroll(); // Check on page load
+
+        // Program data
+        const programData = {
+            mma: {
+                title: 'Mixed Martial Arts (MMA)',
+                description: 'Complete combat training combining striking, grappling, and ground fighting techniques from various martial arts disciplines.',
+                price: '$120/month',
+                features: [
+                    'Striking techniques (Boxing, Muay Thai)',
+                    'Grappling and takedowns (Wrestling)',
+                    'Ground fighting (Brazilian Jiu-Jitsu)',
+                    'Conditioning and fitness training',
+                    'Sparring sessions',
+                    'Competition preparation'
+                ],
+                schedule: [
+                    'Monday & Wednesday: 6:00 PM - 7:30 PM (Beginner)',
+                    'Tuesday & Thursday: 6:00 PM - 7:30 PM (Intermediate)',
+                    'Friday: 6:00 PM - 7:30 PM (All Levels)',
+                    'Saturday: 10:00 AM - 11:30 AM (Sparring - Advanced)'
+                ]
+            },
+            muaythai: {
+                title: 'Muay Thai',
+                description: 'The art of eight limbs - master powerful kicks, punches, elbows, and knee strikes in this traditional Thai martial art.',
+                price: '$100/month',
+                features: [
+                    'Traditional Muay Thai techniques',
+                    'Pad work and heavy bag training',
+                    'Clinch work and knee strikes',
+                    'Conditioning and flexibility',
+                    'Thai boxing fundamentals',
+                    'Cultural aspects and traditions'
+                ],
+                schedule: [
+                    'Tuesday & Thursday: 9:00 AM - 10:30 AM (Intermediate)',
+                    'Thursday: 9:00 AM - 10:30 AM (Beginner)',
+                    'Monday & Wednesday: 8:00 PM - 9:30 PM (Advanced)',
+                    'Wednesday: 8:00 PM - 9:30 PM (Beginner)'
+                ]
+            },
+            bjj: {
+                title: 'Brazilian Jiu-Jitsu',
+                description: 'Ground fighting and submission techniques focusing on leverage, timing, and technique over strength.',
+                price: '$110/month',
+                features: [
+                    'Guard positions and submissions',
+                    'Takedowns and throws',
+                    'Escapes and reversals',
+                    'No-gi and gi training',
+                    'Self-defense applications',
+                    'Competition preparation'
+                ],
+                schedule: [
+                    'Monday & Wednesday: 9:00 AM - 10:30 AM (Fundamentals)',
+                    'Wednesday: 9:00 AM - 10:30 AM (Advanced)',
+                    'Friday: 9:00 AM - 10:30 AM (All Levels)',
+                    'Tuesday: 6:00 PM - 7:30 PM (Competition)'
+                ]
+            },
+            boxing: {
+                title: 'Boxing',
+                description: 'Classic boxing fundamentals with modern training methods for fitness, self-defense, and competition.',
+                price: '$90/month',
+                features: [
+                    'Fundamental boxing techniques',
+                    'Footwork and movement',
+                    'Heavy bag and speed bag training',
+                    'Mitt work with coaches',
+                    'Conditioning and strength training',
+                    'Sparring for advanced students'
+                ],
+                schedule: [
+                    'Monday, Wednesday, Friday: 6:00 AM - 7:00 AM (Beginner)',
+                    'Tuesday: 12:00 PM - 1:00 PM (Intermediate)',
+                    'Thursday: 12:00 PM - 1:00 PM (Advanced)',
+                    'Friday: 6:00 AM - 7:00 AM (All Levels)'
+                ]
+            },
+            kids: {
+                title: 'Kids Program',
+                description: 'Age-appropriate martial arts training focusing on discipline, respect, confidence, and fun for children.',
+                price: '$80/month',
+                features: [
+                    'Age-appropriate techniques',
+                    'Character development',
+                    'Anti-bullying training',
+                    'Coordination and fitness',
+                    'Fun games and activities',
+                    'Belt ranking system'
+                ],
+                schedule: [
+                    'Saturday: 9:00 AM - 10:00 AM (Ages 6-12)',
+                    'Saturday: 12:00 PM - 1:00 PM (Ages 13-17)',
+                    'Wednesday: 4:00 PM - 5:00 PM (Ages 6-12)',
+                    'Friday: 4:00 PM - 5:00 PM (Ages 13-17)'
+                ]
+            },
+            fitness: {
+                title: 'Combat Fitness',
+                description: 'High-intensity workouts combining martial arts techniques with fitness training for maximum results.',
+                price: '$70/month',
+                features: [
+                    'HIIT training with martial arts',
+                    'Strength and conditioning',
+                    'Cardio and endurance building',
+                    'Flexibility and mobility',
+                    'Nutrition guidance',
+                    'Progress tracking'
+                ],
+                schedule: [
+                    'Monday & Wednesday: 12:00 PM - 1:00 PM',
+                    'Tuesday & Thursday: 8:00 PM - 9:00 PM',
+                    'Friday: 12:00 PM - 1:00 PM',
+                    'Saturday: 8:00 AM - 9:00 AM'
+                ]
+            }
+        };
+
+        // Program modal
+        document.querySelectorAll('.program-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const program = this.dataset.program;
+                const data = programData[program];
+                
+                document.getElementById('program-modal-content').innerHTML = `
+                    <h2 class="text-3xl font-bold text-white mb-4">${data.title}</h2>
+                    <p class="text-gray-300 mb-6">${data.description}</p>
+                    <div class="text-2xl font-bold text-red-500 mb-6">${data.price}</div>
+                    
+                    <h3 class="text-xl font-semibold text-white mb-4">What You'll Learn:</h3>
+                    <ul class="space-y-2 mb-6">
+                        ${data.features.map(feature => `
+                            <li class="flex items-center text-gray-300">
+                                <i class="ri-check-line text-red-500 mr-3"></i>
+                                ${feature}
+                            </li>
+                        `).join('')}
+                    </ul>
+                    
+                    <h3 class="text-xl font-semibold text-white mb-4">Class Schedule:</h3>
+                    <ul class="space-y-2 mb-8">
+                        ${data.schedule.map(time => `
+                            <li class="text-gray-300">
+                                <i class="ri-time-line text-red-500 mr-3"></i>
+                                ${time}
+                            </li>
+                        `).join('')}
+                    </ul>
+                    
+                    <div class="flex space-x-4">
+                        <a href="#contact" class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors flex-1 text-center" onclick="closeModal('program-modal')">
+                            Book Free Trial
+                        </a>
+                        <button onclick="closeModal('program-modal')" class="border border-gray-600 text-gray-300 hover:text-white px-6 py-3 rounded-lg font-semibold transition-colors flex-1">
+                            Close
+                        </button>
+                    </div>
+                `;
+                
+                document.getElementById('program-modal').classList.add('active');
+            });
+        });
+
+        // Coach data
+        const coachData = {
+            marcus: {
+                name: 'Marcus Chen',
+                title: 'Head MMA Instructor',
+                image: 'https://readdy.ai/api/search-image?query=professional%20male%20martial%20arts%20instructor%20in%20his%2030s%2C%20athletic%20build%2C%20confident%20pose%2C%20wearing%20black%20martial%20arts%20gi%2C%20studio%20lighting%2C%20professional%20headshot%20style%2C%20determined%20expression&width=300&height=300&seq=coach1&orientation=squarish',
+                bio: 'Marcus is a former UFC fighter with over 15 years of professional fighting experience. He holds black belts in Brazilian Jiu-Jitsu and Karate, and has trained champions at the highest levels of MMA.',
+                achievements: [
+                    'Former UFC Middleweight Contender',
+                    'Brazilian Jiu-Jitsu Black Belt (3rd Degree)',
+                    'Shotokan Karate Black Belt',
+                    '25-8 Professional MMA Record',
+                    'Coached 12 Professional Champions',
+                    'MMAA Certified Instructor'
+                ],
+                specialties: ['MMA', 'Boxing', 'Brazilian Jiu-Jitsu', 'Wrestling']
+            },
+            sarah: {
+                name: 'Sarah Rodriguez',
+                title: 'Muay Thai World Champion',
+                image: 'https://readdy.ai/api/search-image?query=professional%20female%20martial%20arts%20instructor%20in%20her%20late%2020s%2C%20athletic%20and%20strong%2C%20wearing%20martial%20arts%20uniform%2C%20confident%20smile%2C%20studio%20lighting%2C%20motivational%20pose%2C%20determined%20expression&width=300&height=300&seq=coach2&orientation=squarish',
+                bio: 'Sarah is a 2-time World Muay Thai Champion with over 12 years of coaching experience. She combines traditional Thai boxing techniques with modern training methods to develop complete fighters.',
+                achievements: [
+                    '2x World Muay Thai Champion',
+                    '5x National Champion',
+                    '45-3 Professional Muay Thai Record',
+                    'WBC Muay Thai World Title Holder',
+                    'Certified Nutritionist',
+                    'MTIA Master Trainer'
+                ],
+                specialties: ['Muay Thai', 'Kickboxing', 'Combat Fitness', 'Nutrition']
+            },
+            alex: {
+                name: 'Alex Thompson',
+                title: 'BJJ Black Belt Master',
+                image: 'https://readdy.ai/api/search-image?query=professional%20male%20Brazilian%20Jiu-Jitsu%20instructor%20in%20his%20early%2040s%2C%20wearing%20black%20belt%20and%20gi%2C%20calm%20and%20focused%20expression%2C%20sitting%20in%20meditation%20pose%2C%20martial%20arts%20studio%20background&width=300&height=300&seq=coach3&orientation=squarish',
+                bio: 'Alex is a 4th-degree Brazilian Jiu-Jitsu black belt who has been training for over 20 years. He learned directly under the Gracie family and has developed innovative teaching methods for all skill levels.',
+                achievements: [
+                    '4th Degree BJJ Black Belt',
+                    'IBJJF World Championship Medalist',
+                    'Trained under Royce Gracie',
+                    '18+ Years Teaching Experience',
+                    'Developed Youth BJJ Curriculum',
+                    'CJJA Certified Instructor'
+                ],
+                specialties: ['Brazilian Jiu-Jitsu', 'Self-Defense', 'Grappling', 'Youth Programs']
+            }
+        };
+
+        // Coach modal
+        document.querySelectorAll('.coach-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const coach = this.dataset.coach;
+                const data = coachData[coach];
+                
+                document.getElementById('coach-modal-content').innerHTML = `
+                    <div class="flex flex-col md:flex-row gap-8">
+                        <div class="md:w-1/3">
+                            <img src="${data.image}" alt="${data.name}" class="w-full rounded-lg mb-4">
+                            <div class="text-center">
+                                <h2 class="text-2xl font-bold text-white mb-2">${data.name}</h2>
+                                <p class="text-red-500 font-semibold mb-4">${data.title}</p>
+                                <div class="flex flex-wrap justify-center gap-2">
+                                    ${data.specialties.map(specialty => `
+                                        <span class="bg-red-600/20 text-red-400 px-3 py-1 rounded-full text-sm">${specialty}</span>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md:w-2/3">
+                            <h3 class="text-xl font-semibold text-white mb-4">About ${data.name.split(' ')[0]}</h3>
+                            <p class="text-gray-300 mb-6">${data.bio}</p>
+                            
+                            <h3 class="text-xl font-semibold text-white mb-4">Achievements & Certifications:</h3>
+                            <ul class="space-y-2 mb-8">
+                                ${data.achievements.map(achievement => `
+                                    <li class="flex items-center text-gray-300">
+                                        <i class="ri-medal-line text-red-500 mr-3"></i>
+                                        ${achievement}
+                                    </li>
+                                `).join('')}
+                            </ul>
+                            
+                            <div class="flex space-x-4">
+                                <a href="#contact" class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors flex-1 text-center" onclick="closeModal('coach-modal')">
+                                    Train with ${data.name.split(' ')[0]}
+                                </a>
+                                <button onclick="closeModal('coach-modal')" class="border border-gray-600 text-gray-300 hover:text-white px-6 py-3 rounded-lg font-semibold transition-colors flex-1">
+                                    Close
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                document.getElementById('coach-modal').classList.add('active');
+            });
+        });
+
+        // Modal functions
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+
+        // Close modal when clicking outside
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.classList.remove('active');
+                }
+            });
+        });
+
+        // Testimonials carousel
+        let currentTestimonial = 0;
+        const testimonialTrack = document.getElementById('testimonials-track');
+        const totalTestimonials = document.querySelectorAll('.carousel-slide').length;
+
+        function updateTestimonialCarousel() {
+            const offset = -currentTestimonial * 100;
+            testimonialTrack.style.transform = `translateX(${offset}%)`;
+        }
+
+        document.getElementById('prev-testimonial').addEventListener('click', function() {
+            currentTestimonial = currentTestimonial > 0 ? currentTestimonial - 1 : totalTestimonials - 1;
+            updateTestimonialCarousel();
+        });
+
+        document.getElementById('next-testimonial').addEventListener('click', function() {
+            currentTestimonial = currentTestimonial < totalTestimonials - 1 ? currentTestimonial + 1 : 0;
+            updateTestimonialCarousel();
+        });
+
+        // Auto-play testimonials
+        setInterval(function() {
+            currentTestimonial = currentTestimonial < totalTestimonials - 1 ? currentTestimonial + 1 : 0;
+            updateTestimonialCarousel();
+        }, 5000);
+
+        // Gallery filter
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const filter = this.dataset.filter;
+                
+                // Update active button
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('active', 'bg-red-600', 'text-white');
+                    btn.classList.add('bg-gray-800', 'text-gray-300');
+                });
+                this.classList.add('active', 'bg-red-600', 'text-white');
+                this.classList.remove('bg-gray-800', 'text-gray-300');
+                
+                // Filter gallery items
+                galleryItems.forEach(item => {
+                    if (filter === 'all' || item.dataset.category === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Lightbox
+        galleryItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const src = this.dataset.src;
+                document.getElementById('lightbox-img').src = src;
+                document.getElementById('lightbox').classList.add('active');
+            });
+        });
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+
+        // Close lightbox when clicking outside image
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLightbox();
+            }
+        });
+
+        // Membership plan toggle
+        const monthlyToggle = document.getElementById('monthly-toggle');
+        const annualToggle = document.getElementById('annual-toggle');
+        const monthlyPrices = document.querySelectorAll('.monthly-price');
+        const annualPrices = document.querySelectorAll('.annual-price');
+
+        monthlyToggle.addEventListener('click', function() {
+            this.classList.add('bg-red-600', 'text-white');
+            this.classList.remove('text-gray-400');
+            annualToggle.classList.remove('bg-red-600', 'text-white');
+            annualToggle.classList.add('text-gray-400');
+            
+            monthlyPrices.forEach(price => price.classList.remove('hidden'));
+            annualPrices.forEach(price => price.classList.add('hidden'));
+        });
+
+        annualToggle.addEventListener('click', function() {
+            this.classList.add('bg-red-600', 'text-white');
+            this.classList.remove('text-gray-400');
+            monthlyToggle.classList.remove('bg-red-600', 'text-white');
+            monthlyToggle.classList.add('text-gray-400');
+            
+            monthlyPrices.forEach(price => price.classList.add('hidden'));
+            annualPrices.forEach(price => price.classList.remove('hidden'));
+        });
+
+        // Contact form
+        const contactForm = document.getElementById('contact-form');
+        const messageTextarea = document.getElementById('message');
+        const charCount = document.getElementById('char-count');
+
+        // Character counter
+        messageTextarea.addEventListener('input', function() {
+            charCount.textContent = this.value.length;
+        });
+
+        // Form submission
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalText = submitButton.innerHTML;
+            
+            // Show loading state
+            submitButton.innerHTML = '<i class="ri-loader-4-line mr-2 animate-spin"></i>Sending...';
+            submitButton.disabled = true;
+            
+            // Hide previous messages
+            document.getElementById('form-success').classList.add('hidden');
+            document.getElementById('form-error').classList.add('hidden');
+            
+            // Validate message length
+            if (messageTextarea.value.length > 500) {
+                document.getElementById('form-error').classList.remove('hidden');
+                submitButton.innerHTML = originalText;
+                submitButton.disabled = false;
+                return;
+            }
+            
+            try {
+                // Convert to URLSearchParams for form submission
+                const urlParams = new URLSearchParams();
+                for (let [key, value] of formData.entries()) {
+                    urlParams.append(key, value);
+                }
+                
+                const response = await fetch('https://readdy.ai/api/form/d35stq5hl5d9vdijb930', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: urlParams
+                });
+                
+                if (response.ok) {
+                    document.getElementById('form-success').classList.remove('hidden');
+                    this.reset();
+                    charCount.textContent = '0';
+                } else {
+                    document.getElementById('form-error').classList.remove('hidden');
+                }
+            } catch (error) {
+                document.getElementById('form-error').classList.remove('hidden');
+            } finally {
+                submitButton.innerHTML = originalText;
+                submitButton.disabled = false;
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                // Close any open modals
+                document.querySelectorAll('.modal.active').forEach(modal => {
+                    modal.classList.remove('active');
+                });
+                
+                // Close lightbox
+                if (document.getElementById('lightbox').classList.contains('active')) {
+                    closeLightbox();
+                }
+            }
+        });
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Trigger initial fade-in check
+            fadeInOnScroll();
+            
+            // Initialize hero animation
+            setTimeout(function() {
+                document.querySelector('.fade-in').classList.add('visible');
+            }, 500);
+        });
+    </script>
+</body>
+</html>
