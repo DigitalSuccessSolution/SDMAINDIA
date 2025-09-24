@@ -307,7 +307,93 @@
 
 
 
+<!-- hero section start -->
+<section class="relative h-[85vh] md:h-[90vh] flex items-center justify-center overflow-hidden bg-black text-white">
+  <!-- Background Image with Gradient Overlay -->
+  <div class="absolute inset-0">
+    <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" 
+         alt="Schedule Planning" 
+         class="w-full h-full object-cover">
+    <div class="absolute inset-0 bg-gradient-to-br from-blue-900/70 via-purple-900/50 to-indigo-900/70"></div>
+  </div>
 
+  <!-- Floating Decorative Elements -->
+  <div class="absolute top-10 left-10 w-4 h-4 bg-blue-500 rounded-full opacity-70 animate-pulse"></div>
+  <div class="absolute bottom-20 right-16 w-6 h-6 bg-white rounded-full opacity-30"></div>
+  <div class="absolute top-1/3 right-1/4 w-3 h-3 bg-indigo-500 rounded-full opacity-50"></div>
+
+  <!-- Main Content -->
+  <div class="relative z-10 text-center px-4 max-w-6xl mx-auto">
+    <!-- Pre-title -->
+    <div class="mb-4">
+      <span class="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium border border-white/20">
+        <i class="fas fa-calendar-alt mr-2"></i> PLAN YOUR VISIT
+      </span>
+    </div>
+    
+    <!-- Main Heading -->
+    <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight" style="padding-top: 100px;">
+      <!-- <span class="text-white block">Event</span> -->
+      <span class="text-blue-400 text-glow block mt-2">Schedule</span>
+      <span class="text-white block mt-2">& Timings</span>
+    </h1>
+    
+    <!-- Subtitle -->
+    <p class="text-lg sm:text-xl md:text-2xl max-w-2xl mx-auto text-white/90 mb-8 font-light leading-relaxed">
+      Browse our complete schedule of events, sessions, and activities. Plan your perfect experience with our detailed timings.
+    </p>
+    
+    <!-- Schedule Highlights -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto mt-12">
+      <div class="bg-white/10 backdrop-blur-sm p-4 rounded-lg border border-white/20">
+        <i class="fas fa-clock text-blue-400 text-2xl mb-2"></i>
+        <h3 class="font-semibold">Daily Timings</h3>
+        <p class="text-sm text-white/80">9:00 AM - 6:00 PM</p>
+      </div>
+      <div class="bg-white/10 backdrop-blur-sm p-4 rounded-lg border border-white/20">
+        <i class="fas fa-calendar-day text-purple-400 text-2xl mb-2"></i>
+        <h3 class="font-semibold">Special Events</h3>
+        <p class="text-sm text-white/80">Weekends & Holidays</p>
+      </div>
+      <div class="bg-white/10 backdrop-blur-sm p-4 rounded-lg border border-white/20">
+        <i class="fas fa-user-clock text-indigo-400 text-2xl mb-2"></i>
+        <h3 class="font-semibold">Flexible Booking</h3>
+        <p class="text-sm text-white/80">Reserve Your Spot</p>
+      </div>
+    </div>
+    
+    <!-- CTA Buttons -->
+    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mt-10">
+      <a href="#daily-schedule" class="px-8 py-3 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl flex items-center">
+        <i class="fas fa-list-alt mr-2"></i> View Full Schedule
+      </a>
+     
+    </div>
+  </div>
+  
+  <!-- Scroll Indicator -->
+  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+    <div class="flex flex-col items-center text-white/70">
+      <span class="text-sm mb-2">View Schedule</span>
+      <div class="w-5 h-8 border-2 border-white/50 rounded-full flex justify-center">
+        <div class="w-1 h-3 bg-white/70 rounded-full mt-2 animate-bounce"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .text-glow {
+    text-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
+  }
+  
+  @media (max-width: 640px) {
+    .text-glow {
+      text-shadow: 0 0 5px rgba(96, 165, 250, 0.4);
+    }
+  }
+</style>
+<!-- hero section end -->
 
 
 
